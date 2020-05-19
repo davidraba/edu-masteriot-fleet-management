@@ -1,0 +1,11 @@
+version: "2"
+services:
+    mqtt:
+        image: panuwitp/mosquitto-arm
+        ports:
+            - "1883:1883"
+    gateway:
+        build: ./gateway
+        restart: always
+        depends_on:
+            - mqtt
