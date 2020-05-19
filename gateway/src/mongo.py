@@ -23,7 +23,8 @@ MONGO_DATETIME_FORMAT = os.getenv("MONGO_DATETIME_FORMAT", MONGO_DATETIME_FORMAT
 
 
 class Mongo(object):
-    def __init__(self):
+    def __init__(self, host, port):
+        MONGO_URI = "mongodb://{}:{}".format(host,port)
         self.client: pymongo.MongoClient = None
         self.database: pymongo.database.Database = None
         self.collection: pymongo.collection.Collection = None

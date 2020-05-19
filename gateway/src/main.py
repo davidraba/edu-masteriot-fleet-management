@@ -1,8 +1,12 @@
+import os
 from mongo import Mongo
 from mqtt import MQTT
 from signal import pause
 
-mongo = Mongo()
+hostDB = os.getenv('HOSTDB', 'edu.insylo.io')
+portDB = os.getenv('PORTDB', 47017)
+
+mongo = Mongo(hostDB, portDB)
 mqtt = MQTT(mongo)
 
 mongo.connect()
