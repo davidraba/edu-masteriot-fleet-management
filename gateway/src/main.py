@@ -3,8 +3,8 @@ from mongo import Mongo
 from mqtt import MQTT
 from signal import pause
 
-hostDB = os.getenv('HOSTDB', 'edu.insylo.io')
-portDB = os.getenv('PORTDB', 47017)
+hostDB = os.getenv('HOSTDB', 'db_host')
+portDB = os.getenv('PORTDB', 27017)
 
 mongo = Mongo(hostDB, portDB)
 mqtt = MQTT(mongo)

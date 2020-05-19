@@ -9,7 +9,7 @@ import threading
 import os
 
 
-MONGO_URI = "mongodb://edu.insylo.io:47017"  # mongodb://user:pass@ip:port || mongodb://ip:port
+MONGO_URI = "mongodb://host:27017"  # mongodb://user:pass@ip:port || mongodb://ip:port
 MONGO_DB = "MasterIoT"
 MONGO_COLLECTION = "sensors"
 MONGO_TIMEOUT = 1  # Time in seconds
