@@ -1,4 +1,6 @@
-# Sessions de treball pel Master Industrial IoT - Docker, BalenaOS i MongoDB
+# Sessions de treball pel Master Industrial IoT
+## Fleet Management with: Docker, BalenaOS i MongoDB
+
 http://www.masteriiotudg.com/
 
 ## Sessió 1 
