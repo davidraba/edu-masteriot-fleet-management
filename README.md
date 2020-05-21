@@ -7,10 +7,10 @@
 - Deploy de serveis a través de BalenaOS
 
 Sessió integrament Online Activitats prèvies a la sessió:
-- Crear el compte personal a balenaCloud.
+- Crear el compte personal a balenaCloud (https://www.balena.io/).
 - Descarregar software robo3T (robomongo Only) https://robomongo.org/download
 - Descarregar http://mqtt-explorer.com/
-- Poder grabar la SD de la rasp durant la sessió
+- Poder grabar la SD de la rasp durant la sessió (https://www.balena.io/etcher/)
 
 Modificarem el codi proporcinat pel gateway per tal que la BBDD normalitzi el contingut JSON en attibuts/valors i així poder cercar millor la informació.
 
