@@ -8,7 +8,7 @@
 
 Sessió integrament Online Activitats prèvies a la sessió:
 - Crear el compte personal a balenaCloud.
-- Descarregar software robo3T (robomongo)
+- Descarregar software robo3T (robomongo Only) https://robomongo.org/download
 - Descarregar http://mqtt-explorer.com/
 - Poder grabar la SD de la rasp durant la sessió
 
