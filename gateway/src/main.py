@@ -6,6 +6,7 @@ from signal import pause
 hostDB = os.getenv('HOSTDB', 'db_host')
 portDB = os.getenv('PORTDB', 27017)
 
+print("{}::{}".format(hostDB, portDB))
 mongo = Mongo(hostDB, portDB)
 mqtt = MQTT(mongo)
 

@@ -24,15 +24,16 @@ MONGO_DATETIME_FORMAT = os.getenv("MONGO_DATETIME_FORMAT", MONGO_DATETIME_FORMAT
 
 class Mongo(object):
     def __init__(self, host, port):
-        MONGO_URI = "mongodb://{}:{}".format(host,port)
-        self.client: pymongo.MongoClient = None
-        self.database: pymongo.database.Database = None
-        self.collection: pymongo.collection.Collection = None
-        self.queue: List[mqtt.MQTTMessage] = list()
+        self.MONGO_URI = "mongodb://{}:{}".format(host,port)
+        self.client = pymongo.MongoClient
+        self.database = pymongo.database.Database 
+        self.collection = pymongo.collection.Collection 
+        self.queue = List[mqtt.MQTTMessage] 
 
     def connect(self):
         print("Connecting Mongo")
-        self.client = pymongo.MongoClient(MONGO_URI, serverSelectionTimeoutMS=MONGO_TIMEOUT*1000.0)
+        print(self.MONGO_URI)
+        self.client = pymongo.MongoClient(self.MONGO_URI, serverSelectionTimeoutMS=MONGO_TIMEOUT*1000.0)
         self.database = self.client.get_database(MONGO_DB)
         self.collection = self.database.get_collection(MONGO_COLLECTION)
 
@@ -42,7 +43,7 @@ class Mongo(object):
             self.client.close()
             self.client = None
 
-    def connected(self) -> bool:
+    def connected(self):
         if not self.client:
             return False
         try:

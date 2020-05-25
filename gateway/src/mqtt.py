@@ -18,8 +18,8 @@ if isinstance(MQTT_TOPICS, str):
     MQTT_TOPICS = [e.strip() for e in MQTT_TOPICS.split(",")]
 
 class MQTT(object):
-    def __init__(self, mongo: Mongo):
-        self.mongo: Mongo = mongo
+    def __init__(self, mongo):
+        self.mongo = mongo 
         self.mqtt_client = mqtt.Client()
         self.mqtt_client.on_connect = self.on_connect
         self.mqtt_client.on_message = self.on_message
