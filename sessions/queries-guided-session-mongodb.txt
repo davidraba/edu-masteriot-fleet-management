@@ -1,0 +1,75 @@
+show collections
+
+db.laureates.stats()
+
+db.laureates.count()
+
+db.laureates.findOne()
+
+db.laureates.find({gender:"male"})
+
+db.laureates.find({bornCountryCode:"US", "prizes.category":"physics", "bornCity":/Chicago/})
+
+db.laureates.distinct("prizes.category")
+
+db.laureates.aggregate(
+{$group: {_id:'$prizes.year', totalPrizes:{$sum:1}}},
+{$sort: {totalPrizes:-1}})
+
+db.laureates.aggregate(
+{$group: {_id:'$bornCountry', totalPrizes:{$sum:1}}},
+{$sort: {totalPrizes:-1}})
+
+db.laureates.aggregate(
+{$match: {"prizes.motivation":/radiation/}},
+{$group: {_id:'$bornCountry', totalPrizes:{$sum:1}}},
+{$sort: {totalPrizes:-1}})
+
+db.laureates.aggregate(
+{$lookup:{from: "country", localField:"bornCountryCode",foreignField:"countryCode", as: "countryInfo"}},
+{$group: {_id:'$countryInfo.continent', totalPrizes:{$sum:1}}},
+{$sort: {totalPrizes:-1}})
+
+db.laureates.aggregate([
+   {
+     $lookup:
+       {
+         from: "countries",
+         localField: "bornCountryCode",
+         foreignField: "code",
+         as: "countryInfo"
+       }
+  }
+])
+
+db.laureates.aggregate([
+   {
+     $lookup:
+       {
+         from: "countries",
+         localField: "bornCountryCode",
+         foreignField: "code",
+         as: "countryInfo"
+       }
+  },
+    {$group: {_id:'$countryInfo.name', totalPrizes:{$sum:1}}},
+    {$sort: {totalPrizes:-1}}  
+])
+
+db.laureates.aggregate([
+   {
+      $lookup:
+         {
+           from: "countries",
+           pipeline: [
+              { $match: { year: 2018 } },
+              { $project: { _id: 0, date: { name: "$name", date: "$date" } } },
+              { $replaceRoot: { newRoot: "$date" } }
+           ],
+           as: "holidays"
+         }
+    }
+])
+
+
+
