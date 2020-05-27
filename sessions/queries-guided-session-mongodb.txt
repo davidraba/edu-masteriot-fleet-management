@@ -56,20 +56,4 @@ db.laureates.aggregate([
     {$sort: {totalPrizes:-1}}  
 ])
 
-db.laureates.aggregate([
-   {
-      $lookup:
-         {
-           from: "countries",
-           pipeline: [
-              { $match: { year: 2018 } },
-              { $project: { _id: 0, date: { name: "$name", date: "$date" } } },
-              { $replaceRoot: { newRoot: "$date" } }
-           ],
-           as: "holidays"
-         }
-    }
-])
-
-
 
