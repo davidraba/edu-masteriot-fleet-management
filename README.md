@@ -23,6 +23,7 @@ De cares a la segona sessió, cal revisar el material de BBDD prèviament. A la 
 ## Sessió 2 
 - Fonaments de Bases de Dades
 - Classificació de BBDD
+- MongoDB: Disseny, implementació i consulta.
 
 ## Activitat 
 - Deploy d’un servei MQTT i un servei gateway contra una BBDD MongoDB (1a Sessió)
